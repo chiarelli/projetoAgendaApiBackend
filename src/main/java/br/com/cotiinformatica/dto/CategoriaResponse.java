@@ -35,18 +35,13 @@ public class CategoriaResponse {
 	}
 	
 	public static Categoria toEntity(CategoriaResponse request) {
-        Categoria categoria = new Categoria();
-        categoria.setId(request.getId());
-        categoria.setNome(request.getNome());
-        categoria.setTarefas(null);
-        return categoria;
-    }
+		Categoria categoria = new Categoria(request.getId(), request.getNome(), new java.util.ArrayList<>());
+		return categoria;
+	}
 	
 	public static CategoriaResponse fromEntity(Categoria categoria) {
-		CategoriaResponse request = new CategoriaResponse();
-		request.setId(categoria.getId());
-		request.setNome(categoria.getNome());
-		return request;
+		CategoriaResponse response = new CategoriaResponse(categoria.getId(), categoria.getNome());
+		return response;
 	}
 	
 }
