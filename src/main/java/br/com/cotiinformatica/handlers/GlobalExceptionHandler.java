@@ -1,5 +1,6 @@
 package br.com.cotiinformatica.handlers;
 
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +27,26 @@ public class GlobalExceptionHandler {
       body.put("errors", erros);
       body.put("path", request.getDescription(false));
 
+    return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+  }
+
+  @ExceptionHandler(IllegalArgumentException.class)
+  public ResponseEntity<?> handleIllegalArgumentException(IllegalArgumentException e, WebRequest request) {
+    var body = Map.of(
+      "error", e.getMessage(),
+      "status", HttpStatus.BAD_REQUEST,
+      "path", request.getDescription(false)
+    );
+    return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+  }
+
+  @ExceptionHandler(ParseException.class)
+  public ResponseEntity<?> handleParseExceptionException(ParseException e, WebRequest request) {
+    var body = Map.of(
+      "error", "Data inválida",
+      "status", HttpStatus.BAD_REQUEST,
+      "path", request.getDescription(false)
+    );
     return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
   }
 }
