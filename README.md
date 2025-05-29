@@ -53,7 +53,7 @@ A API possui documentação interativa disponível via Swagger:
 - `POST /api/v1/tarefas` – Criar nova tarefa  
 - `GET /api/v1/tarefas` – Listar todas as tarefas  
 - `GET /api/v1/tarefas/{id}` – Buscar tarefa por ID  
-- `PATCH /api/v1/tarefas/{id}` – Atualizar uma tarefa  
+- `PUT /api/v1/tarefas/{id}` – Atualizar uma tarefa  
 - `DELETE /api/v1/tarefas/{id}` – Remover uma tarefa  
 
 #### 📂 Categorias
