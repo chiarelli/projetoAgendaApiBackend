@@ -30,7 +30,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import jakarta.websocket.server.PathParam;
 
 @RestController
 @RequestMapping("/api/v1/tarefas")
@@ -123,6 +122,7 @@ public class TarefasController {
 			.orElseThrow(() -> new IllegalArgumentException("Categoria nao encontrada"));
 		
 		var entity = mapper.map(tarefa, Tarefa.class);
+			entity.setId(id);
 			entity.setCategoria(cat);
 
 		entity = tarefaRepository.save(entity);
