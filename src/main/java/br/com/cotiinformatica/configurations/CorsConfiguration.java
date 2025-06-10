@@ -2,6 +2,7 @@ package br.com.cotiinformatica.configurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.lang.NonNull;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -12,7 +13,7 @@ public class CorsConfiguration {
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {            
             @Override
-            public void addCorsMappings(CorsRegistry registry) {
+            public void addCorsMappings(@NonNull CorsRegistry registry) {
                 registry.addMapping("/**") // permite CORS para todos os endpoints
                         .allowedOrigins("*") // permite todas as origens
                         .allowedMethods("*") // permite todos os métodos HTTP

@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
 
 import br.com.cotiinformatica.entities.Categoria;
@@ -13,6 +14,7 @@ import br.com.cotiinformatica.entities.Categoria;
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, UUID> {
 	
+	@NonNull
 	@Query("""
 			SELECT c FROM Categoria c
 			ORDER BY c.nome ASC			
